@@ -1,0 +1,1 @@
+-- cons are the core person representation in BSD. You get to a person's actions, information, etc through their cons_id
