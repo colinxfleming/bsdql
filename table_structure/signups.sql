@@ -14,7 +14,7 @@ join cons_action ca
 
 It's best to filter on keys in stg_signup, in my experience. Some of the keys drop off or act weird when you drill in further. 
 
-AVAILABLE AND USEFUL FILTERS IN SIGNUPS
+AVAILABLE AND USEFUL FILTERS IN stg_signup
 - chapter_id
 - create_dt
 - source 
@@ -23,6 +23,9 @@ AVAILABLE AND USEFUL FILTERS IN SIGNUPS
 */
 
 -- sample queries using each of these filters: 
+-- note that these use inner joins! 
+-- Occasionally BSD takes awhile to process things from stg_signup down all the way. 
+-- See the readme in this folder for more info.
 
 -- signups just in chapters 2 and 3
 select 
