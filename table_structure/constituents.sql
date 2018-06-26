@@ -1,8 +1,10 @@
 -- cons are the core person representation in BSD. You get to a person's actions, information, etc through their cons_id. 
 -- The cons table contains some basic data, and then other stuff is joinable through cons_id. 
 -- keys to know: cons_id (primary key), firstname, lastname
-select 
-	cons_id, firstname, lastname
+select distinct
+	cons_id,
+  firstname,
+  lastname
 from cons
 ; 
 
@@ -13,18 +15,29 @@ USEFUL THINGS TO KNOW IN CONS
 RELATED TABLES OF JUST CONSTITUENT INFO AND KEYS TO KNOW
 
 cons_addr: contains address data
-- keys: addr1 (varchar), addr2 (varchar), city (varchar), state_cd (varchar), zip (varchar), zip5 (varchar), is_primary (boolean)
-- note that BSD does not validate data in raw uploads. 
+- keys:
+  addr1 (varchar)
+  addr2 (varchar)
+  city (varchar)
+  state_cd (varchar)
+  zip (varchar)
+  zip5 (varchar)
+  is_primary (boolean)
+- note that BSD does not validate data in raw uploads, I don't think.
 
 cons_phone: contains phone numbers
-- keys: phone (varchar), cons_phone_type_id (int), is_primary (boolean)
-- phone is a string, cons
+- keys:
+  phone (varchar)
+  cons_phone_type_id (int)
+  is_primary (boolean)
+- phone is a string, not an int. You might need to trim it etc.
 
 -- cons_email: email data, subscription
+- keys: ???
 
 
 PATTERNS ACROSS TABLES
-- behavior of is_primary: [tk]
+- behavior of is_primary: ???
 
 OTHER TABLES YOU CAN GET TO WITH CONS_IDS, DISCUSSED IN DIFFERENT PARTS
 - mailing_recipient_unque (from which you can get what mailings they got and clicked on)
@@ -37,8 +50,13 @@ OTHER TABLES YOU CAN GET TO WITH CONS_IDS, DISCUSSED IN DIFFERENT PARTS
 
 -- people with primary addresses in michigan
 select 
-	c.cons_id, c.firstname, c.lastname, 
-	a.addr1, a.addr2, a.state_cd, a.zip
+	c.cons_id,
+  c.firstname,
+  c.lastname, 
+	a.addr1,
+  a.addr2,
+  a.state_cd,
+  a.zip
 from cons c
 join cons_addr a on a.cons_id = c.cons_id
 where a.state_cd = 'MI'
@@ -47,7 +65,8 @@ where a.state_cd = 'MI'
 
 -- people and their home phone numbers, if we have them on file
 select
-	c.cons_id, p.phone
+	c.cons_id,
+  p.phone
 from cons c
 left join cons_phone p on c.cons_id = p.cons_id 
 where p.cons_phone_type_id = 1 -- home phone
