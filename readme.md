@@ -1,13 +1,26 @@
-<h1>Using Blue State Digital as a SQL Developer</h1>
+# Getting around Blue State Digital's database
 
-<p>As far as I know, there's no documentation for using Blue State Digital's MySQL replica, which is important for scalable use. This is a little problematic because relatively few people work on BSD data, and trial by getting thrown in the deep end is a good way to get gray hairs at 25. This attempts to fill that gap.</p>
+As far as I know, there's no documentation of BSD's MySQL table structure,
+which is important for running analytics raw. This is a little tough because
+not that many people (I think!) work on BSD's data, and trial by fire just
+about gave me gray hairs at 25.
 
-<h2>What's in this repo?</h2>
-<p>This repo is divided up into two directories -- a table structure directory, which explains tables related to common and uncommon topics such as constituent data, contribution data, etc., and a folder with sample queries that solve common issues.</p>
-<p>These queries assume you are on MySQL wherever possible, unless otherwise noted.</p>
+I haven't worked on BSD stuff in awhile, but this is my attempt to fill some
+of the resource gap by sharing my notes from four years ago.
 
-<h2>Please Help, Please</h2>
-<p>Contributions from the three other people who work on these issues are welcome! Please make pull requests wherever possible to flesh out or to correct assumptions.</p>
+## Currently...
 
-<h3>Hit Me Up</h3>
-<p>I'm at <a href="mailto:c3flemin@gmail.com">c3flemin@gmail.com</a>.</p>
+Look in `table_structure`, specifically in `constituents.sql` and `signups.sql`.
+I wrote those before I got a job and then forgot everything I knew.
+
+## Maybe someday I will
+
+* Flesh out how to n
+
+## Pull requests welcome
+
+If you find this useful, please pay it forward.
+
+## HMU
+
+I'm at c3flemin@gmail.com.
